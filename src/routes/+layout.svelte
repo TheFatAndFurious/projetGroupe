@@ -1,14 +1,14 @@
 <script lang="ts">
-	import '../styles.css';
-	import { invalidate } from '$app/navigation';
-	import { onMount } from 'svelte';
+	import "../app.pcss";
+    import { invalidate } from '$app/navigation';
+    import { onMount } from 'svelte';
 
-	export let data;
+    export let data;
 
-	let { supabase, session } = data;
-	$: ({ supabase, session } = data);
+    let { supabase, session } = data;
+    $: ({ supabase, session } = data);
 
-	onMount(() => {
+    onMount(() => {
 		const {
 			data: { subscription }
 		} = supabase.auth.onAuthStateChange((event, _session) => {
@@ -19,6 +19,10 @@
 
 		return () => subscription.unsubscribe();
 	});
+<<<<<<< HEAD
+    console.log('dtis', data.session);
+=======
+>>>>>>> 1a68229 (page cours)
 </script>
 
 <svelte:head>
@@ -33,5 +37,5 @@
 	<a href="/private/cours/create">Creer un cours</a>
 </div>
 <div class="container" style="padding: 50px 0 100px 0">
-	<slot />
+	<slot></slot>
 </div>
